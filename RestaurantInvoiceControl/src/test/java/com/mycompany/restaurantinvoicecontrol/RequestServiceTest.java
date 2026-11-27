@@ -1,9 +1,9 @@
 package com.mycompany.restaurantinvoicecontrol;
 
 import java.util.ArrayList;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class RequestServiceTest {
 
@@ -11,7 +11,7 @@ public class RequestServiceTest {
     private ArrayList<Invoice> invoices;
     private ArrayList<Request> requests;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         invoices = new ArrayList<>();
         requests = new ArrayList<>();
