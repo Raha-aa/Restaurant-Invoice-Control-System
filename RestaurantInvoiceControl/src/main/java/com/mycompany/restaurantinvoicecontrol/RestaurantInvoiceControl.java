@@ -17,10 +17,12 @@ public class RestaurantInvoiceControl {
         invoices.add(new Invoice(103, 85.0, "Active"));
 
         RequestService service = new RequestService(invoices, requests);
+        ValidationService validationService = new ValidationService(invoices);
+        NotificationService notificationService = new NotificationService();
 
         System.out.println("Restaurant Invoice Control System");
         System.out.println("--------------------------------");
-
+ 
         System.out.println("Available Invoices:");
 
         for (Invoice invoice : invoices) {
@@ -58,7 +60,11 @@ public class RestaurantInvoiceControl {
 
         System.out.print("Enter note (optional): ");
         String note = input.nextLine();
+        
+        String validationResult = validationService.validateRequest(invoiceId, type, details);
+        System.out.println("\nValidation Result: " + validationResult);
 
+        if ("Valid".equals(validationResult)) {
         String result = service.createRequest(
                 invoiceId, type, details, note);
 
@@ -67,6 +73,8 @@ public class RestaurantInvoiceControl {
         if ("Pending".equals(result)) {
             RequestFileWriter.saveRequest(
                     invoiceId, type, details, note, result);
+            notificationService.notifySupervisor(requests.size(), invoiceId, type);
+            }
         }
     }
 }
