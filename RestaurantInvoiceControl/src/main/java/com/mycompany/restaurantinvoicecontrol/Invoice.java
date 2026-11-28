@@ -31,4 +31,8 @@ public class Invoice {
     public void cancelInvoice() {
         this.status = "Cancelled";
     }
+
+    public void updateInvoiceAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }
