@@ -10,3 +10,15 @@ Modification Details:
 Note: Duplicate invoice
 Status: Pending
 ------------------------------
+Invoice ID: 101
+Request Type: Modification
+Modification Details: Change invoice amount to 120 SAR
+Note: 
+Status: Pending
+------------------------------
+Invoice ID: 101
+Request Type: Cancellation
+Modification Details: 
+Note: Table order cancelled by customer
+Status: Pending
+------------------------------
